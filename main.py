@@ -5,6 +5,8 @@ import os
 
 
 def connect_to_mysql():
+    print(os.environ)
+
     try:
         # 连接到MySQL数据库
         connection = mysql.connector.connect(
@@ -13,7 +15,6 @@ def connect_to_mysql():
             user=os.getenv("MYSQL_USER"),  # 用户名
             password=os.getenv("MYSQL_PASSWORD"),  # 密码
         )
-        print(os.environ)
         if connection.is_connected():
             print("成功连接到MySQL数据库")
 
