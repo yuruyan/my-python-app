@@ -13,7 +13,7 @@ def connect_to_mysql():
             user=os.getenv("MYSQL_USER"),  # 用户名
             password=os.getenv("MYSQL_PASSWORD"),  # 密码
         )
-
+        print(os.environ)
         if connection.is_connected():
             print("成功连接到MySQL数据库")
 
@@ -31,15 +31,13 @@ def connect_to_mysql():
             for row in records:
                 print(row)
 
-    except Error as e:
-        print(f"Error: {e}")
-
-    finally:
         # 关闭游标和连接
         if connection.is_connected():
             cursor.close()
             connection.close()
             print("MySQL连接已关闭")
+    except Error as e:
+        print(f"Error: {e}")
 
 
 if __name__ == "__main__":
