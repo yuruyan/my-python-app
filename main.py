@@ -1,12 +1,9 @@
 import time
 import mysql.connector
-from mysql.connector import Error
 import os
 
 
 def connect_to_mysql():
-    print(os.environ)
-
     try:
         # 连接到MySQL数据库
         connection = mysql.connector.connect(
@@ -42,5 +39,7 @@ def connect_to_mysql():
 
 
 if __name__ == "__main__":
+    print(os.environ)
+    print(os.getenv("MYSQL_HOST"))
     connect_to_mysql()
     time.sleep(10000)

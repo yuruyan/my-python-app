@@ -1,5 +1,5 @@
 # 使用官方的Python基础镜像
-FROM dockerhub.world-machining.com/library/python:3.13.1-alpine3.21
+FROM dockerhub.world-machining.com/library/python:3.11.11
 
 # 设置工作目录
 WORKDIR /app
