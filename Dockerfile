@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # 安装Python依赖
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # 定义启动命令
 CMD ["python", "main.py"]

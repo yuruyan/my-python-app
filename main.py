@@ -34,7 +34,7 @@ def connect_to_mysql():
             cursor.close()
             connection.close()
             print("MySQL连接已关闭")
-    except Error as e:
+    except Exception as e:
         print(f"Error: {e}")
 
 
