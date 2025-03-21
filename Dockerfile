@@ -11,4 +11,4 @@ COPY . /app
 RUN pip install -r requirements.txt
 
 # 定义启动命令
-CMD ["python", "main.py"]
+CMD ["python", "-u", "main.py"]
