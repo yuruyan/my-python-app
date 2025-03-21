@@ -1,6 +1,28 @@
 import time
 import mysql.connector
 import os
+import socket
+
+def is_ip_reachable(ip_address, port=80, timeout=5):
+    try:
+        # 创建一个套接字对象
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(timeout)
+
+        # 尝试连接到指定的IP地址和端口
+        result = sock.connect_ex((ip_address, port))
+
+        # 关闭套接字
+        sock.close()
+
+        # 如果结果为0，表示连接成功
+        if result == 0:
+            return True
+        else:
+            return False
+    except Exception as e:
+        print(f"发生错误: {e}")
+        return False
 
 
 def connect_to_mysql():
@@ -39,7 +61,6 @@ def connect_to_mysql():
 
 
 if __name__ == "__main__":
-    print(os.environ)
-    print(os.getenv("MYSQL_HOST"))
+    print(is_ip_reachable(os.getenv("MYSQL_HOST"), port=3306))
     connect_to_mysql()
     time.sleep(10000)
