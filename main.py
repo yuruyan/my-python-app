@@ -3,7 +3,7 @@ import mysql.connector
 import os
 import socket
 
-def is_ip_reachable(ip_address, port=80, timeout=5):
+def is_ip_reachable(ip_address, port=80, timeout=30):
     try:
         # 创建一个套接字对象
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
